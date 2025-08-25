@@ -1,0 +1,36 @@
+noise: True
+
+signal:
+  model: Alvarez2009
+  zerosignal: False
+
+propagation:
+  ice_model: greenland_simple
+  attenuation_model: GL1
+  attenuate_ice: True # if True apply the frequency dependent attenuation due to propagating through ice. (Note: The 1/R amplitude scaling will be applied in either case.)
+  n_freq: 100  # the number of frequencies where the attenuation length is calculated for. The remaining frequencies will be determined from a linear interpolation between the reference frequencies. The reference frequencies are equally spaced over the complet frequency range.
+  focusing: True  # if True apply the focusing effect.
+
+speedup:
+  delta_C_cut: 0 
+  redo_raytracing: True 
+  distance_cut: False
+  minimum_weight_cut: 0
+  min_efield_amplitude: 0
+
+output:
+  channel_traces: True
+  electric_field_traces: True
+  sim_channel_traces: True
+  sim_electric_field_traces: True
+
+trigger:
+  noise_temperature: 300  # in Kelvin
+  Vrms: null  # the RMS noise value in volts. Not compatible with 'noise_temperature', if Vrms is set, 'noise_temperature' must be None
+
+weights:
+  weight_mode: core_mantle_crust # core_mantle_crust: use the three
+  #layer earth model, which considers the different densities of the
+  #core, mantle and crust. simple: use the simple earth model, which
+  #apply a constant earth density
+
