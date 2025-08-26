@@ -29,6 +29,7 @@ attenuation_model = 'GL1'
 rays = prop(ice, attenuation_model,
             n_frequencies_integration=25,
             n_reflections=0)
+
 def makefig(y, label='', xlabel='', ylabel='', savefig=''):
     plt.cla()
     fig, ax = plt.subplots()
